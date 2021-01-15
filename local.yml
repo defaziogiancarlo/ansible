@@ -1,9 +1,21 @@
 ---
 - hosts: localhost
-  become: true
+  #become: true
   tasks:
-    - name: install htop
+    - name: install various tools
       apt:
         name:
+          - colordiff
+          - emacs-nox
+          - git
           - htop
-          - nmon
+          - perl
+          - python3
+          - tree
+          - vagrant
+          - wget
+          - xclip
+        state: latest
+
+    #- name: get dot files
+      

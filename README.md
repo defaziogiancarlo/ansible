@@ -6,4 +6,5 @@ have git and ansible installed, have internet connection
 
 ## usage
 from the computer you want to set up
-sudo ansible-pull -U https://github.com/defaziogiancarlo/ansible.git
+this will execute the playbook local.yml
+sudo ansible-pull -i $(uname -n), -U https://github.com/defaziogiancarlo/ansible.git
