@@ -20,11 +20,13 @@
         state: latest
 
     - name: get dot files
+      become: defazio1
       git:
         repo: "https://github.com/defaziogiancarlo/dots.git"
         dest: ~/dots
 
     - name: link .gitconfig
+      become: defazio1
       file:
         src: "~/dots/gitconfig"
         dest: "~/.gitconfig"
