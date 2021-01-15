@@ -3,9 +3,11 @@
   #become: true
   tasks:
     - name: install various tools
+      become: yes
       apt:
         name:
           - colordiff
+          - curl
           - emacs-nox
           - git
           - htop
@@ -17,5 +19,37 @@
           - xclip
         state: latest
 
-    #- name: get dot files
+    - name: get dot files
+      git:
+        repo: "https://github.com/defaziogiancarlo/dots.git"
+        dest: ~/dots
+
+    # - name: link .gitconfig
+    #   file:
+    #     src: "~/dots/gitconfig"
+    #     dest: "~/.gitconfig"
+    #     state: link
+
+    # - name: link .emacs
+    #   file:
+    #     src: "~/dots/emacs"
+    #     dest: "~/.emacs"
+    #     state: link
+
+    # - name: get text from ~/dots/bashrc
+    #   shell: cat ~/dots/bashrc
+    #   register: dots_bashrc_text
+      
+    # - name: put ~/dots/bashrc into an existing ~/.bashrc
+    #   blockinfile:
+    #     path: ~/.bashrc
+    #     marker_begin: BEGIN github dots text
+    #     marker_end: END github dots text
+    #     insterafter: EOF
+    #     state: present
+    #     create: yes
+    #     block: "{{ dots_bashrc_text.stdout }}"
+
+        
+        
       
